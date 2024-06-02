@@ -1,0 +1,93 @@
+{
+  "id": "4183706",
+  "name": "ADHD",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "15053390",
+      "name": "下载",
+      "font_class": "24px",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "4777232",
+      "name": "全屏",
+      "font_class": "quanping",
+      "unicode": "ec13",
+      "unicode_decimal": 60435
+    },
+    {
+      "icon_id": "1727377",
+      "name": "32权限、钥匙-线性",
+      "font_class": "quanxianyuechi-xianxing",
+      "unicode": "e8a3",
+      "unicode_decimal": 59555
+    },
+    {
+      "icon_id": "7594808",
+      "name": "24gl-fileEmpty",
+      "font_class": "24gl-fileEmpty",
+      "unicode": "eabf",
+      "unicode_decimal": 60095
+    },
+    {
+      "icon_id": "27730089",
+      "name": "项目",
+      "font_class": "xiangmu",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "33390142",
+      "name": "文件夹-关_folder-close",
+      "font_class": "wenjianjia-guan_folder-close",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "16813608",
+      "name": "icon-folder open-fill",
+      "font_class": "icon-folder-open-fill",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "20104486",
+      "name": "角色配置",
+      "font_class": "jiaosepeizhi",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "577357",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e74b",
+      "unicode_decimal": 59211
+    },
+    {
+      "icon_id": "668429",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e6b0",
+      "unicode_decimal": 59056
+    },
+    {
+      "icon_id": "970774",
+      "name": "报告",
+      "font_class": "baogao-copy",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "27285401",
+      "name": "进入",
+      "font_class": "a-ziyuan626",
+      "unicode": "e791",
+      "unicode_decimal": 59281
+    }
+  ]
+}

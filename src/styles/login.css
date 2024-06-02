@@ -1,0 +1,58 @@
+@charset "utf-8";
+@charset "utf-8";
+*{margin: 0;padding: 0;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin: 0;padding: 0;}
+html {font-family: "Microsoft Yahei",SimSun,SimHei,Tahoma, Arial, Helvetica, STHeiti;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
+table {border-collapse: collapse;border-spacing: 0;font-size: inherit;}
+a{text-decoration: none;}
+a:hover {text-decoration:none;outline: 0;}
+a:active {outline: 0;}
+img,button,input { border: none;height: auto;vertical-align: middle;}
+li,dl,dt,dd{list-style-type:none;}
+input,textarea,select,option,textarea,em,h1,h2,h3,h4,h4,h6,strong,span,li,dl,dt,td{font-family:"Microsoft YaHei",SimSun,SimHei;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.clearfix:before, .clearfix:after {content:" ";display:table}
+.clearfix:after {clear:both}
+.clearfix {*zoom: 1;}
+.fl{ float:left;}
+.fr{ float:right;}
+
+.bd-bg{width:100%;height:100%;}
+.loginbox{ position:relative;left:0px;top:0px;right:0px;}
+.logobox{ position:relative; margin:70px 0 40px 0; height:66px; line-height:66px;}
+.logobox img{ width:288px;height:66px; line-height:66px; vertical-align:top}
+.logobox span{font-size:32px; color:#333; line-height:66px; margin-left:18px; font-weight:500}
+.login-content-right{ position:absolute;right:0;top:20px; width:380px;}
+.loginbox-content{position:relative; margin-top:15px;}
+.cw-login-title{ width:100%; float:left;margin: 20px 0 10px;}
+.cw-login-title-ch{ font-size:28px; color:#647CFF; margin-right:4px}
+.cw-login-title-en{ font-size:24px; color:#c6c6c6}
+.loginbox-content p.error-txt{ color:#ff6600; font-size:14px;margin-top:6px; margin-bottom:4px}
+.iptbox{ float:left; width:324px; height:46px; line-height:46px; border:1px solid #dfdfdf;}
+.loginbox-content .iptbox label.cw-icon-user{ float:left; width:46px; height:46px; border-right:1px solid #dfdfdf; background:url(../assets/images/cw-icon-user.png) no-repeat center center}
+.loginbox-content .iptbox label.cw-icon-pwd{ float:left; width:46px; height:46px; border-right:1px solid #dfdfdf; background:url(../assets/images/cw-icon-pwd.png) no-repeat center center}
+.loginbox-content .ipt{ float:left; padding-left:10px; padding-right:5px; width:260px; height:46px; line-height:46px; font-size:14px; background:#fff; border:none; outline:none}
+.loginbox-content p{margin:18px 28px 12px 28px; float:left; width:324px;}
+.cw-login-btn{float:left;+float:none;width:326px;background:#0e7fd0;margin:24px 28px 40px 28px; text-align:center;border-radius:3px; -webkit-border-radius:3px;-o-border-radius:3px;-moz-border-radius:3px;}
+.cw-login-btn a{font-size:16px; color:#fff;width:326px; height:46px; line-height:46px; display:block;letter-spacing: 4px;}
+.cw-login-btn a:hover{ background:#1c7fdf}
+.cw-copyright{position:relative; margin:35px 0 10px; color:#666; font-size:14px; text-align:center}
+
+
+/*login-new*/
+.login-box{width:100%;height:100%;position:relative;}
+.login-box-img{width:200px;height:100%;background:#900;position:absolute;right:0px;top:0px;z-index:0;}
+.login-main{width: 1440px;height:900px;position: absolute;left: 50%; margin-left: -720px;z-index:2;border-radius:8px;}
+.login-min{width:1000px;height:500px;margin:0px auto;padding:0px;margin-top:220px;}
+.login-left{width:264px;height:100%;float:left;}
+.login-left-lfbt{margin-top:12px;font-size:32px;font-weight:bold;float:left;}
+.login-left-fbt{font-size:16px;float:left;color:#BFBFBF;margin-bottom:82px;}
+.login-input-lg{height:48px;border-radius:8px;border:1px solid #E8E8E8;padding:0px 8px;width:calc(264px - 16px);color:#262626;outline-style: none;margin-bottom:12px;}
+.login-btn-lg{background:#122EBF;border-radius:8px;text-align:center;font-size:16px;color:#fff;width:264px;margin-top:12px;height:48px;cursor:pointer;}
+
+.login-right{width:710px;height:423px;float:right;background:#ffffff;border-radius:16px;border:2px solid #EDEDED;}
+.login-right-font{width:360px;float:left;height:auto;}
+.login-right-img{width:350px;height:290px;float:right;background:url(../assets/images/login-ct.png) left no-repeat;background-size:cover;margin-top:80px;background-size:90%;}
+.login-left-tig{width:45px;height:45px;font-size:18px; color:#fff; background-size:40px;padding:2px 8px;border-radius:4px;text-align:center;margin:135px 0px 0px 35px;}
+.login-left-SHL{font-size:26px;font-weight:bold;margin-top:8px;margin-left:35px;}
+.login-left-sml{font-size:16px;margin-top:8px;margin-left:35px;color:#262626;}
+.login-left-ssm{font-size:12px;margin-top:18px;margin-left:35px;color:#BFBFBF;}

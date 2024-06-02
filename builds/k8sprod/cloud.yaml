@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-web
+  namespace: middleware
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      project: cloud-web
+      app: dms
+  template:
+    metadata:
+      labels:
+        project: cloud-web
+        app: dms
+        buildId: latest
+    spec:
+      imagePullSecrets:
+        - name: sfxs-harbor
+      containers:
+        - name: cloud-web
+          image: harbor.sfxsgroup.com/sfxs/cloud-web:prod
+          imagePullPolicy: Always
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 60
+            periodSeconds: 20
+            failureThreshold: 5
+            timeoutSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            failureThreshold: 10
+            timeoutSeconds: 5
+          ports:
+            - containerPort: 80
+              name: web
+              protocol: TCP
+          volumeMounts:
+            - name: host-time
+              mountPath: /etc/localtime
+      volumes:
+        - name: host-time
+          hostPath:
+            path: /etc/localtime
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-web
+  namespace: middleware
+  labels:
+    project: cloud-web
+    app: dms
+spec:
+  type: NodePort
+  selector:
+    project: cloud-web
+    app: dms
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 31090

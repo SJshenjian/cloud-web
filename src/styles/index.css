@@ -1,0 +1,20 @@
+:root {
+  --el-menu-item-font-size: 16px;
+  --el-color-primary: #132EBE;
+  --el-color-primary-light-3: #647CFF;
+  --el-color-primary-light-5: #a0cfff;
+  --el-color-primary-light-7: #c6e2ff;
+  --el-color-primary-light-8: #d9ecff;
+  --el-color-primary-light-9: #ecf5ff;
+}
+
+.el-form-item{
+  margin-bottom: 28px;
+}
+
+.el-dialog__header {
+  background-color: #132EBE;
+  margin-right: 0px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

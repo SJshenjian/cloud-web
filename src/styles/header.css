@@ -1,0 +1,24 @@
+/*头部样式开始*/
+.header {display: table;width: 100%;min-width: 1000px;left: 0px;right: 0px;background: #132EBE;}
+.header .top {height: 72px;}
+.header .top .title {font-size:30px;font-weight:bold;line-height:21px;margin:17px 0px 16px 0px;padding:8px 0px 7px 5px;color:#4c4948;float:left;height:21px;}
+.header .top a {float: right;display: inline-block;color:#222; text-align:center; margin:16px 15px 15px 15px; font-size:14px;}
+.header .top a:hover { color:#647CFF;}
+.header .nav {background-color:#132EBE;height:80px;line-height:80px;width: 100%; position:relative;display: inline-flex}
+.header .nav .user { position: absolute;right: 20px; color:#fff;font-size:14px;}
+
+
+.rg-infor{width:auto;float:right;margin-right:15px;position: absolute; right: 0px;}
+.rg-infor-li{width:auto;float:left;line-height:80px;color:#d6ddff;margin: 0px 15px 0px 0px;font-size: 16px;}
+.rg-infor-li a{color:#d6ddff;font-size: 16px;}
+
+
+.rg-login{width: 117px;
+    height: 59px;
+    float: left;
+    margin-left: 10px;
+    background-size: cover;
+    margin: 9px 20px 0 10px;}
+
+
+/*头部样式结束*/

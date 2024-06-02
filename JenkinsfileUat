@@ -1,0 +1,46 @@
+#!/usr/bin/env groovy
+pipeline {
+    agent any
+    stages {
+        stage("Git Checkout") {
+            steps {
+                git changelog: false, credentialsId: 'gitlab-secret', poll: false, branch: 'uat', url: 'https://sfxs-gitlab.dgtmeta.com/java/cloud-web.git'
+            }
+        }
+        stage('Node Build') {
+            steps {
+                sh '''
+                echo 开始构建项目
+                npm config set registry https://registry.npmmirror.com
+                npm install
+                npm run build
+                echo 完成构建项目
+                '''
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                script {
+                    dir("") {
+                        withDockerRegistry(credentialsId: 'docker-nexus', url: 'https://harbor.sfxsgroup.com') {
+                            sh "docker build -t harbor.sfxsgroup.com/sfxs/cloud-web:uat ."
+                            sh "docker push harbor.sfxsgroup.com/sfxs/cloud-web:uat"
+                        }
+                    }
+                }
+            }
+        }
+        stage('K8SUAT Deploy') {
+            steps {
+                script {
+                    dir("builds/k8stest") {
+                        withKubeConfig([credentialsId: 'sfxs-test-k8s']) {
+                            sh "sed -i 's/latest/v_${env.BUILD_ID}/' dms.yaml"
+                            sh "kubectl apply -f dms.yaml"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
