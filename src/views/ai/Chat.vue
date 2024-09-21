@@ -2,11 +2,11 @@
   <div class="chat">
     <el-form>
       <el-row>
-        <div class="chat-container">
+        <div class="chat-container" style="margin-bottom: 40px">
           <div v-for="message in messages" :key="message.id" class="message">
             <el-avatar v-if="!message.isUser" shape="square" size="50" :src="botAvatar"></el-avatar>
             <div :class="{'user-message': message.isUser, 'bot-message': !message.isUser}">
-              {{ message.text }}
+              <div className="show-html" v-html=message.text></div>
             </div>
           </div>
         </div>
@@ -25,6 +25,9 @@
 
 <script>
 
+import {marked} from 'marked'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/atom-one-dark.css'
 export default {
   name: "chat",
   data () {
@@ -37,13 +40,30 @@ export default {
     }
   },
   methods: {
+    renderMessageContent(msg) {
+      marked.setOptions({
+        renderer: new marked.Renderer(),
+        highlight: function(code, lang) {
+          // If lang is provided, use it; otherwise, let hljs guess
+          return hljs.highlight(code, { language: lang || '' }).value;
+        },
+        langPrefix: 'hljs language-',
+        pedantic: false,
+        gfm: true,  // GitHub Flavored Markdown for better code block support among other things
+        breaks: false,
+        sanitize: true,  // For security, sanitize the HTML output unless you trust the source
+        smartypants: false,
+        xhtml: false
+      });
+      let html = marked(msg)
+      return html
+    },
     sendMessage() {
       const self = this
       if (self.inputMessage) {
         self.messages.push({id: self.messages.length + 1, text: self.inputMessage, isUser: true});
         self.$http.post('/chat/chat', {'content': self.inputMessage}, 'apiUrl').then(res => {
-          debugger
-          self.messages.push({id: self.messages.length + 1, text: res, isUser: false});
+          self.messages.push({id: self.messages.length + 1, text: self.renderMessageContent(res), isUser: false});
           self.inputMessage = '';
         })
       }
