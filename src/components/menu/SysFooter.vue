@@ -78,8 +78,8 @@ export default {
           this.editableTabs.push({'title': '菜单管理', 'name': 'module'})
         } else if (newVal === 'project') {
           this.editableTabs.push({'title': '项目管理', 'name': 'project'})
-        } else if (newVal === 'patient') {
-          this.editableTabs.push({'title': '患者管理', 'name': 'patient'})
+        } else if (newVal === 'chat') {
+          this.editableTabs.push({'title': 'AI聊天', 'name': 'chat'})
         }
         this.editableTabsValue = newVal
       },

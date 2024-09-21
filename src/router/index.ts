@@ -4,6 +4,7 @@ import login from "@/views/login/Index.vue";
 import index from "@/views/Index.vue"
 import systemRouter from "@/router/modules/system"
 import userRouter from "@/router/modules/user"
+import aiRouter from "@/router/modules/ai"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,7 +25,7 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   // 修复打包后首页不显示问题，更改为该模式
   history: createWebHashHistory(),
-  routes: routes.concat(userRouter, systemRouter)
+  routes: routes.concat(userRouter, systemRouter, aiRouter)
 })
 
 export default router
