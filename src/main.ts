@@ -27,6 +27,7 @@ import VueSSE from 'vue-sse'
 const app = Vue.createApp(App)
 
 // Use VueSSE, including a polyfill for older browsers
+// @ts-ignore
 app.use($).use(ElementPlus).use(store).use(router).use(VueSSE, {
     polyfill: true
 })
