@@ -22,9 +22,14 @@ import $ from 'jquery'
 import { formatDate } from '@/util/index'
 import './styles/index.css'
 import { isEmpty, isNumber } from 'lodash'
+import VueSSE from 'vue-sse'
 
 const app = Vue.createApp(App)
-app.use($).use(ElementPlus).use(store).use(router)
+
+// Use VueSSE, including a polyfill for older browsers
+app.use($).use(ElementPlus).use(store).use(router).use(VueSSE, {
+    polyfill: true
+})
 app.config.globalProperties.$http = $http
 app.config.globalProperties.$isMobileDevice = navigator.userAgent.match(
     /(phone|Pad|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
