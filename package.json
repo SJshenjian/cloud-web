@@ -32,9 +32,9 @@
     "vue-class-component": "^8.0.0-0",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.3",
+    "vue-sse": "^2.5.2",
     "vuex": "^4.0.0",
-    "webpack": "^5.88.0",
-    "vue-sse": "^2.5.2"
+    "webpack": "^5.88.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-private-methods": "^7.22.5",

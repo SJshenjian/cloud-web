@@ -41,11 +41,11 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.css'
 import store from "@/store";
 export default {
-  name: "sseChatDoubao",
+  name: "sseChat",
   data () {
     return {
       messages: [
-
+        {id: 1, text: '我是您的私人智能助理，请问现在能帮您做什么？', isUser: false}
       ],
       inputMessage: '',
       botAvatar: require('../../assets/images/robot.png'),
@@ -66,8 +66,6 @@ export default {
   },
   mounted() {
     this.connect()
-    this.$http.post('/chat/sseChat', {'content': "预设我是一个上海市刚需购房者身份，请主动提问我问题了解我的购房需求(要求一个个问题提问)，并总结输出JSON格式输出, 请简短打个招呼再问问题", self.inputMessage""}, 'apiUrl').then(res => {})
-
   },
   methods: {
     copyToClipboard(text) {
@@ -160,7 +158,7 @@ export default {
         //   self.inputMessage = '';
         // })
         // 流式输出
-        self.$http.post('/chat/sseChatDoubao', {'content': self.inputMessage}, 'apiUrl').then(res => {
+        self.$http.post('/chat/sseChat', {'content': self.inputMessage}, 'apiUrl').then(res => {
           self.inputMessage = '';
         })
       }
