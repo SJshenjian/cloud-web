@@ -4,8 +4,8 @@
       <el-row>
         <div class="chat-container" style="margin-bottom: 40px">
 <!--          <div v-for="message in messages" :key="message.id" class="message">-->
-<!--            <el-avatar v-if="!message.isUser" shape="square" size="50" :src="botAvatar"></el-avatar>-->
-<!--            <div :class="{'user-message': message.isUser, 'bot-message': !message.isUser}">-->
+<!--            <el-avatar v-if="!message.from" shape="square" size="50" :src="botAvatar"></el-avatar>-->
+<!--            <div :class="{'user-message': message.from, 'bot-message': !message.from}">-->
 <!--              <div className="show-html" v-html=message.text></div>-->
 <!--            </div>-->
 <!--          </div>-->
@@ -66,8 +66,7 @@ export default {
   },
   mounted() {
     this.connect()
-    this.$http.post('/chat/sseChat', {'content': "预设我是一个上海市刚需购房者身份，请主动提问我问题了解我的购房需求(要求一个个问题提问)，并总结输出JSON格式输出, 请简短打个招呼再问问题", self.inputMessage""}, 'apiUrl').then(res => {})
-
+    this.$http.post('/chat/sseChatDoubao', {'content': "init"}, 'apiUrl').then(res => {})
   },
   methods: {
     copyToClipboard(text) {
@@ -84,7 +83,7 @@ export default {
       })
       // add the user's handlers
       this.handlers.forEach((h) => {
-        client.on(h.event, (data) => { //
+        client.on(h.event, (data) => {
           if (data === '<SSE_START>') {
             self.messages.push( {
               text: '',
@@ -102,7 +101,12 @@ export default {
               from: 'ai',
               type: isCode ? 'code' : 'text',
             };
-            self.messages[self.messages.length - 1].text += data;
+            // 解决AI USER同行问题
+            if ( self.messages[self.messages.length - 1].from === 'user') {
+              self.messages.push({id: self.messages.length + 1, text: data, from: 'ai'});
+            } else {
+              self.messages[self.messages.length - 1].text += data;
+            }
             self.highlightCode();
           }
         })
@@ -153,7 +157,7 @@ export default {
     sendMessage() {
       const self = this
       if (self.inputMessage) {
-        self.messages.push({id: self.messages.length + 1, text: self.inputMessage, isUser: true});
+        self.messages.push({id: self.messages.length + 1, text: self.inputMessage, from: 'user'});
         // 一次性输出
         // self.$http.post('/chat/chat', {'content': self.inputMessage}, 'apiUrl').then(res => {
         //   self.messages.push({id: self.messages.length + 1, text: self.renderMessageContent(res), isUser: false});
