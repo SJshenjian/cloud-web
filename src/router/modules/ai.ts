@@ -1,11 +1,11 @@
-import chat from "@/views/ai/Chat.vue";
+import doge from "@/views/doge/Doge.vue";
 
 const aiRouter = [
     {
-        path: '/chat',
-        meta: { title: 'AI聊天' },
-        name: 'chat',
-        component: chat,
+        path: '/doge',
+        meta: { title: 'DOGE' },
+        name: 'doge',
+        component: doge,
     }
 ]
 export default aiRouter
