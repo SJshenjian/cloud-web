@@ -16,7 +16,7 @@ export default {
       addressData: []
     }
   },
-  mounted() {
+  created() {
     this.getBalance()
   },
   methods: {

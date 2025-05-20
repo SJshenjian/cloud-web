@@ -2,6 +2,7 @@ import org from "@/views/system/org/Index.vue";
 import module from "@/views/system/module/Index.vue";
 import role from "@/views/system/role/Index.vue";
 import config from "@/views/system/config/Index.vue";
+import demo from "@/views/system/demo/Index.vue";
 
 /**
  * @author shenjian
@@ -31,6 +32,12 @@ const systemRouter = [
         meta: { title: '配置列表' },
         name: 'config',
         component: config,
+    },
+    {
+        path: '/demo',
+        meta: { title: '组件示例' },
+        name: 'demo',
+        component: demo,
     },
 ]
 export default systemRouter

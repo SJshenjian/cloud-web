@@ -1,8 +1,7 @@
 <!-- LineChart.vue -->
 <template>
   <div class="chart-container">
-    <div v-if="isDataValid" ref="chart" class="chart"></div>
-    <div v-else class="error-message">数据无效或加载中...</div>
+    <div ref="chart" class="chart"></div>
   </div>
 </template>
 
@@ -64,6 +63,7 @@ export default {
       this.updateChart();
     },
     updateChart() {
+      debugger
       if (!this.chart || !this.isDataValid) return;
 
       const dates = this.chartData[0].history.map(item => item.date || '');
@@ -114,15 +114,6 @@ export default {
           },
           borderColor: '#333',
           borderWidth: 1
-        },
-        legend: {
-          data: series.map(s => s.name),
-          selected: Object.fromEntries(
-              series.map(s => [s.name, !this.hiddenSeries.has(s.name)])
-          ), // 根据 hiddenSeries 设置初始状态
-          top: 40,
-          type: 'scroll',
-          padding: [0, 50]
         },
         grid: {
           left: '3%',
