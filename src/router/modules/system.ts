@@ -39,5 +39,11 @@ const systemRouter = [
         name: 'demo',
         component: demo,
     },
+    {
+        path: '/task',
+        meta: { title: '任务中心' },
+        name: 'task',
+        component: demo,
+    },
 ]
 export default systemRouter
